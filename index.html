@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digits Object Detection App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://docs.opencv.org/4.x/opencv.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+</head>
+<body>
+    <div id="loadingOverlay">
+        <div class="spinner"></div>
+        <p>Loading, please wait...</p>
+    </div>
+    <div id="infoAndControls">
+        <div id="instructions">
+            <p>Here's how to use:</p>
+            <ul>
+                <li>Adjust the <strong><span class="tooltip">IoU Threshold<span class="tooltip-text">A metric used to measure the overlap between the predicted bounding box and the ground truth bounding box.</span></span></strong> and <strong><span class="tooltip">Confidence Score Threshold<span class="tooltip-text">The minimum probability required by the model to consider a detection valid.</span></span></strong>.</li>
+                <li>Draw on the sketch canvas. Adjust pencil size as needed.</li>
+                <li>Click on "Clear Canvas" to erase drawings and detection boxes.</li>
+            </ul>
+            <p>View more of my projects <a href="https://github.com/napronald" target="_blank" rel="noopener noreferrer">here</a>.</p>
+        </div>
+        <div id="controls">
+            <label for="iouThreshold">IoU Threshold:</label>
+            <input type="range" id="iouThreshold" min="0" max="1" step="0.01" value="0.5" aria-labelledby="iouThreshold">
+            <span id="iouValue">0.5</span>
+            
+            <label for="scoreThreshold">Confidence Score Threshold:</label>
+            <input type="range" id="scoreThreshold" min="0" max="1" step="0.01" value="0.5" aria-labelledby="scoreThreshold">
+            <span id="scoreValue">0.5</span>
+
+            <label for="pencilSize">Pencil Size:</label>
+            <input type="range" id="pencilSize" min="1" max="25" step="1" value="5" aria-labelledby="pencilSize">
+            <span id="pencilSizeValue">5 px</span>        
+        </div>
+    </div>
+    <div id="canvasContainer">
+        <canvas id="sketchCanvas" width="640" height="640" aria-label="Sketch Canvas"></canvas>
+        <canvas id="boxesCanvas" width="640" height="640" aria-label="Detection Boxes Canvas"></canvas>
+    </div>
+    <button id="clearButton">Clear Canvas</button>
+    <script type="module" src="./scripts/main.js"></script>
+</body>
+</html>

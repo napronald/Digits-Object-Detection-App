@@ -1,0 +1,147 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(240, 240, 240);
+    color: rgb(65, 65, 65);
+}
+
+#canvasContainer {
+    position: relative;
+    width: 640px;
+    height: 640px;
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#sketchCanvas {
+    z-index: 1;
+    background-color: #FFFFFF;
+}
+
+#boxesCanvas {
+    z-index: 2;
+    pointer-events: none; 
+}
+
+#infoAndControls {
+    display: flex;
+    width: 75%;
+    max-width: 800px;
+    justify-content: space-between;
+}
+
+#instructions {
+    flex: 1;
+    padding-right: 20px; 
+    width: 100%;
+}
+
+#controls {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50%; 
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input[type="range"], span {
+    width: 80%;
+}
+
+#clearButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#clearButton:hover {
+    background-color: #0056b3;
+}
+
+.tooltip {
+    position: relative;
+    cursor: help;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 280px;
+    background-color: #f9f9f9;
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+    top: 150%;  
+    left: 50%;
+    transform: translateX(-50%);  
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 0.9;
+}
+
+a:link, a:visited, a:hover, a:active {
+    color: #007bff;
+}
+
+#loadingOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#loadingOverlay .spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db; 
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+    margin-bottom: 20px;
+}
+
+#loadingOverlay p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+    color: #333;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
