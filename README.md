@@ -7,12 +7,12 @@ Digits Object Detection App is a web-based platform that allows users to draw di
 ### 1. Real-Time Detection Demo
 Showcases how bounding boxes update on the fly as you draw digits (e.g., changing a `0` into a `9`).
 
-https://github.com/user-attachments/assets/abac4792-b7e8-4a86-885d-27fbd17a50fd
+https://github.com/user-attachments/assets/b9635fbf-24d6-4490-8b8c-952fc91ea8b3
 
 ### 2. IoU & Score Threshold Sliders Demo
 Demonstrates how adjusting IoU and confidence thresholds influences the appearance or disappearance of bounding boxes.
 
-https://github.com/user-attachments/assets/358070cb-e594-492d-b4a1-d69fe826e22e
+https://github.com/user-attachments/assets/7d29d056-9968-4a8f-8b81-69621e950df4
 
 ## How It Works
 1. **Canvas Drawing**: Users draw digits on the `sketchCanvas`.  
